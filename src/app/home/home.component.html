@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+<div class="col-lg-6">
+<p>home works!</p>
+<mat-form-field class="example-full-width">
+    <mat-label>Favorite food<i class="fa fa-address-book" aria-hidden="true"></i></mat-label>
+    <input matInput placeholder="Ex. Pizza" [(ngModel)]="data" >
+  </mat-form-field>
+</div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th>SL No</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items; let i = index;">
+                <td>
+                   {{i+1}}</td>
+                   <td><mat-form-field><input matInput placeholder="Name" [(ngModel)]="item.name" [disabled]="item.edit" value="">
+                   </mat-form-field></td>
+                   <td><mat-form-field><input matInput placeholder="Addrss" value="" [(ngModel)]="item.address" [disabled]="item.edit">
+                   </mat-form-field></td>
+                   <td ><a *ngIf="i===items.length-1" (click)="addItem()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <a  (click)="deleteItem(i)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a  (click)="item.edit=false"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+            </tr>
+        </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+<app-child-home (sendEvent)="receiveData($event)"></app-child-home>

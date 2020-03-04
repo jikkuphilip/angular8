@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="col-lg-6">
+        
+<div class="form-group">
+    <label>Enter Data to send</label>
+    <input type="text" class="form-control" [(ngModel)]="data" >
+</div>
+<button class="btn btn-success btn-success-border btn-sm" (click)="sendData()" [disabled]=!data>Send Data</button>
+</div>
+</div>
